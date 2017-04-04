@@ -19,3 +19,37 @@ set mat=2 "How many tenth of a second to blink when matching brackets
 syntax on
 colorscheme desert
 set encoding=utf8
+set smarttab
+set shiftwidth=4
+set tabstop=4 " tabstop, shiftwidth, softtabstop.....confused
+set autoindent "useless when use cindent?
+set smartindent "useless when use cindent?
+set wrap "line wrap, auto new line
+set cindent
+
+map <F7> <ESC>:call OneFileCompile()<CR>
+map! <F7> <ESC>:call OneFileCompile()<CR>
+map <F8> <ESC>:call CompileAndRun()<CR>
+map! <F8> <ESC>:call CompileAndRun()<CR>
+map <leader><space> :call RunThis()<CR>
+
+function OneFileCompile()
+	exec "w"
+	if &filetype=='c'
+		exec "!gcc % -o %<"
+	endif
+	if &filetype=='cpp'
+		exec "!g++ % -o %<"
+	endif
+endfunction
+
+function RunThis()
+	exec "!./%<"
+endfunction
+
+function CompileAndRun()
+	call OneFileCompile()
+	if(v:shell_error==0)
+		call RunThis()
+	endif
+endfunction
