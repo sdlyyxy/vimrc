@@ -39,10 +39,10 @@ map <leader><space> :call RunThis()<CR>
 function OneFileCompile()
 	exec "w"
 	if &filetype=='c'
-		exec "!gcc % -o -Wall -DLOCAL%<"
+		exec "!gcc % -o %< -Wall -DLOCAL"
 	endif
 	if &filetype=='cpp'
-		exec "!g++ % -o -Wall -DLOCAL%<"
+		exec "!g++ % -o %< -Wall -DLOCAL"
 	endif
 endfunction
 
