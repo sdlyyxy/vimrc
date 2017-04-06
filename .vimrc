@@ -1,3 +1,4 @@
+"by sdlyyxy...
 set nocompatible
 set guifont=Courier\ new:h15:cANSI:qDRAFT
 set backspace=2 " for indent,eol,start

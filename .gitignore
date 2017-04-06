@@ -3,4 +3,5 @@
 !README.md
 !.vimrc
 !.gitignore
-!win_push.bat
+!*.bat
+!*.sh
