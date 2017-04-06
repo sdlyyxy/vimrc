@@ -1,6 +1,6 @@
 #!/bin/bash
 git add *
-git commit -m '"'`date`'"'
+eval "git commit -m" '"'`date`'"'
 git pull
 git push
 
