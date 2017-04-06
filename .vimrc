@@ -1,4 +1,5 @@
 set nocompatible
+set guifont=Courier\ new:h15:cANSI:qDRAFT
 set backspace=2 " for indent,eol,start
 set number
 set cursorline
@@ -18,7 +19,7 @@ set showmatch "show matching brackets
 set mat=2 "How many tenth of a second to blink when matching brackets
 syntax on
 colorscheme desert
-set encoding=utf8
+" set encoding=utf8 "on gvim the menus are wrong..
 set smarttab
 set shiftwidth=4
 set tabstop=4 " tabstop, shiftwidth, softtabstop.....confused
@@ -26,6 +27,8 @@ set autoindent "useless when use cindent?
 set smartindent "useless when use cindent?
 set wrap "line wrap, auto new line
 set cindent
+
+autocmd BufNewFile *.cpp 0r d:/oi_code/template.cpp
 
 map <F7> <ESC>:call OneFileCompile()<CR>
 map! <F7> <ESC>:call OneFileCompile()<CR>
@@ -36,15 +39,15 @@ map <leader><space> :call RunThis()<CR>
 function OneFileCompile()
 	exec "w"
 	if &filetype=='c'
-		exec "!gcc % -o %<"
+		exec "!gcc % -o -Wall -DLOCAL%<"
 	endif
 	if &filetype=='cpp'
-		exec "!g++ % -o %<"
+		exec "!g++ % -o -Wall -DLOCAL%<"
 	endif
 endfunction
 
 function RunThis()
-	exec "!./%<"
+	exec "!%<"
 endfunction
 
 function CompileAndRun()
