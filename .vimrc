@@ -1,4 +1,4 @@
-"by sdlyyxy...
+" copyright (c) 2017 sdlyyxy
 set nocompatible
 set guifont=Courier\ new:h15:cANSI:qDRAFT
 set backspace=2 " for indent,eol,start
@@ -20,7 +20,9 @@ set showmatch "show matching brackets
 set mat=2 "How many tenth of a second to blink when matching brackets
 syntax on
 colorscheme desert
-" set encoding=utf8 "on gvim the menus are wrong..
+if !has('win32')
+	set encoding=utf8 "on gvim the menus are wrong..
+endif
 set smarttab
 set shiftwidth=4
 set tabstop=4 " tabstop, shiftwidth, softtabstop.....confused
@@ -29,7 +31,10 @@ set smartindent "useless when use cindent?
 set wrap "line wrap, auto new line
 set cindent
 
-autocmd BufNewFile *.cpp 0r d:/oi_code/template.cpp
+" todo: check template whether exists
+if has('win32') 
+	autocmd BufNewFile *.cpp 0r d:/oi_code/template.cpp
+endif
 
 map <F7> <ESC>:call OneFileCompile()<CR>
 map! <F7> <ESC>:call OneFileCompile()<CR>
@@ -48,7 +53,11 @@ function OneFileCompile()
 endfunction
 
 function RunThis()
-	exec "!%<"
+	if has('win32')
+		exec "!%<"
+	else
+		exec "!./%<"
+	endif
 endfunction
 
 function CompileAndRun()
@@ -57,3 +66,8 @@ function CompileAndRun()
 		call RunThis()
 	endif
 endfunction
+
+map <silent> <leader>ee :e ~/.vimrc<cr> 
+" fast edit local .vimrc
+map <silent> <leader>raw :!cat %<cr>
+" cat raw code without line number
