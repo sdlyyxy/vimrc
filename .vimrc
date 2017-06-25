@@ -40,15 +40,17 @@ map <F7> <ESC>:call OneFileCompile()<CR>
 map! <F7> <ESC>:call OneFileCompile()<CR>
 map <F8> <ESC>:call CompileAndRun()<CR>
 map! <F8> <ESC>:call CompileAndRun()<CR>
+map <F9> <ESC>:call CompileAndDebug()<CR>
+map! <F9> <ESC>:call CompileAndDebug()<CR>
 map <leader><space> :call RunThis()<CR>
 
 function OneFileCompile()
 	exec "w"
 	if &filetype=='c'
-		exec "!gcc % -o %< -Wall -DLOCAL"
+		exec "!gcc % -o %< -Wall -DLOCAL -g"
 	endif
 	if &filetype=='cpp'
-		exec "!g++ % -o %< -Wall -DLOCAL"
+		exec "!g++ % -o %< -Wall -DLOCAL -g"
 	endif
 endfunction
 
@@ -64,6 +66,13 @@ function CompileAndRun()
 	call OneFileCompile()
 	if(v:shell_error==0)
 		call RunThis()
+	endif
+endfunction
+
+function CompileAndDebug()
+	call OneFileCompile()
+	if(v:shell_error==0)
+		exec "!gdb %<"
 	endif
 endfunction
 
