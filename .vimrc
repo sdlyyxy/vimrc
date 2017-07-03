@@ -55,10 +55,19 @@ function OneFileCompile()
 endfunction
 
 function RunThis()
-	if has('win32')
-		exec "!%<"
-	else
-		exec "!./%<"
+	exec "w"
+	if &filetype=='c'||&filetype=='cpp'
+		if has('win32')
+			exec "!%<"
+		else
+			exec "!./%<"
+		endif
+	endif
+	if &filetype=='javascript'
+		exec '!nodejs %'
+	endif
+	if &filetype=='python'
+		exec '!python %'
 	endif
 endfunction
 

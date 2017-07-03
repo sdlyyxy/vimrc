@@ -1,0 +1,11 @@
+#!/usr/bin/python
+import sys,os
+s=''
+if len(sys.argv)>1:
+    s=sys.argv[1]
+if s=='push':
+    os.system('cp -f .vimrc ~/.vimrc')
+elif s=='pull':
+    os.system('cp -f ~/.vimrc .vimrc')
+else:
+    print('Usage: ./update [push] [pull]')
