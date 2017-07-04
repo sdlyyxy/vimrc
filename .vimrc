@@ -30,6 +30,8 @@ set autoindent "useless when use cindent?
 set smartindent "useless when use cindent?
 set wrap "line wrap, auto new line
 set cindent
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%Y-%m-%d\ %H:%M\")}
+set laststatus=2
 
 " todo: check template whether exists
 if has('win32') 
@@ -68,6 +70,9 @@ function RunThis()
 	endif
 	if &filetype=='python'
 		exec '!python %'
+	endif
+	if &filetype=='html'
+		exec '!firefox %'
 	endif
 endfunction
 

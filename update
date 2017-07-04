@@ -7,5 +7,7 @@ if s=='push':
     os.system('cp -f .vimrc ~/.vimrc')
 elif s=='pull':
     os.system('cp -f ~/.vimrc .vimrc')
+elif s=='diff':
+    os.system('git diff ~/.vimrc .vimrc')
 else:
-    print('Usage: ./update [push] [pull]')
+    print('Usage: ./update [push] [pull] [diff]')
