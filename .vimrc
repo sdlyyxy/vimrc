@@ -74,6 +74,9 @@ function RunThis()
 	if &filetype=='html'
 		exec '!firefox %'
 	endif
+	if &filetype=='markdown'
+		exec '!md %'
+	endif
 endfunction
 
 function CompileAndRun()
