@@ -3,11 +3,11 @@ import sys,os
 s=''
 if len(sys.argv)>1:
     s=sys.argv[1]
-if s=='push':
+if s=='install':
     os.system('cp -f .vimrc ~/.vimrc')
-elif s=='pull':
+elif s=='getlocal':
     os.system('cp -f ~/.vimrc .vimrc')
 elif s=='diff':
     os.system('git diff ~/.vimrc .vimrc')
 else:
-    print('Usage: ./update [push] [pull] [diff]')
+    print('Usage: ./update [install] [getlocal] [diff]')
