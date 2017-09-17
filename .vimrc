@@ -52,7 +52,7 @@ function OneFileCompile()
 		exec "!gcc % -o %< -Wall -DLOCAL -g"
 	endif
 	if &filetype=='cpp'
-		exec "!g++ % -o %< -Wall -DLOCAL -g"
+		exec "!g++ % -o %< -Wall -std=c++11 -DLOCAL -g"
 	endif
 endfunction
 
