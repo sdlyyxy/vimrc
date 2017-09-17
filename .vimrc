@@ -30,7 +30,7 @@ set autoindent "useless when use cindent?
 set smartindent "useless when use cindent?
 set wrap "line wrap, auto new line
 set cindent
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%Y-%m-%d\ %H:%M\")}
+set statusline=%F%m%r%h%w\|%Y\|L%l,C%v\|%p%%
 set laststatus=2
 
 " todo: check template whether exists
