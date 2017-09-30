@@ -23,6 +23,8 @@ colorscheme desert
 if !has('win32')
 	set encoding=utf8 "on gvim the menus are wrong..
 endif
+set fileencodings=utf8,gbk
+set fileformats=unix,mac,dos
 set smarttab
 set shiftwidth=4
 set tabstop=4 " tabstop, shiftwidth, softtabstop.....confused
@@ -30,7 +32,7 @@ set autoindent "useless when use cindent?
 set smartindent "useless when use cindent?
 set wrap "line wrap, auto new line
 set cindent
-set statusline=%F%m%r%h%w\|%Y\|L%l,C%v\|%p%%
+set statusline=%F%m%r%h%w\ \|%{&ff}\|%{&fenc}\|%Y\|L%l,C%v\|%p%%
 set laststatus=2
 
 " todo: check template whether exists
