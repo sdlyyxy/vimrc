@@ -9,5 +9,7 @@ elif s=='getlocal':
     os.system('cp -f ~/.vimrc .vimrc')
 elif s=='diff':
     os.system('git diff ~/.vimrc .vimrc')
+elif s=='vundle':
+    os.system("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim")
 else:
-    print('Usage: ./update [getlocal] [install] [diff]')
+    print('Usage: ./update [getlocal] [install] [diff] [vundle]')
