@@ -9,9 +9,9 @@ call vundle#begin()
 
 	" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'git://github.com.cnpmjs.org/scrooloose/nerdtree.git'
+Plugin 'git://github.com.cnpmjs.org/mattn/emmet-vim.git'
+Plugin 'git://github.com.cnpmjs.org/scrooloose/nerdcommenter.git'
 " Plugin 'Valloric/YouCompleteMe'
 	" The following are examples of different formats supported.
 	" Keep Plugin commands between vundle#begin/end.
